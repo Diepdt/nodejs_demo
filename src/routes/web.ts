@@ -1,14 +1,11 @@
 import express, { Express } from 'express'; // const express = require('express');
+import { getCreateUserPage, getHomePage } from '../controllers/user.controllers';
 const router = express.Router();
 
 const webRoutes = (app: Express) => { // khai bao 1 ham va dat ten: webRoutes
-    router.get("/", (req, res) => { // khai bao ham callback vo danh
-        res.render("home.ejs");
-    });
+    router.get("/", getHomePage)
 
-    router.get("/Diepdt", (req, res) => {
-        res.send("Hello Diepdt!");
-    });
+    router.get("/create-user", getCreateUserPage)
 
     app.use("/", router);
 }
