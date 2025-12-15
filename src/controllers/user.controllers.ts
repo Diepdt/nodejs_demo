@@ -8,4 +8,9 @@ const getCreateUserPage = (req: Request, res: Response) => {
     res.render("create-user")
 }
 
-export { getHomePage, getCreateUserPage }
+const postCreateUserInfo = (req: Request, res: Response) => {
+    console.log("Post new user info sucessfully!")
+    res.redirect("/")
+}
+
+export { getHomePage, getCreateUserPage, postCreateUserInfo }
