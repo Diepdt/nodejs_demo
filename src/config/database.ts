@@ -10,16 +10,7 @@ const getConnectionDatabase = async () => {
         database: 'nodejspro',
         password: '123456'
     });
-    try {
-        const [results, fields] = await connection.query(
-            'SELECT * FROM `user`'
-        );
-
-        console.log(results); // results contains rows returned by server
-        console.log(fields); // fields contains extra meta data about results, if available
-    } catch (err) {
-        console.log(err);
-    }
+    return connection;
 }
 
 export default getConnectionDatabase;

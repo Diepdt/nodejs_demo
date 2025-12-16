@@ -9,10 +9,37 @@
 </head>
 
 <body>
-    <h1>Hello EJS from controller!</h1>
-    <img src="images/book.png" />
-    <br>
-    <a class="btn btn-warning" href="/create-user">Create User Page</a>
+    <div style="margin: 25px;">
+        <div style="display:flex; justify-content: space-between; align-self: center;">
+            <h1>List User: <%= name %>
+            </h1>
+            <div>
+                <a class="btn btn-warning" href="/create-user">Create a new user</a>
+            </div>
+        </div>
+        <hr>
+        <table class="table table-hover table-striped table-boreded">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>Diepdt</td>
+                    <td>dtd@example.com</td>
+                    <td>HN</td>
+                    <td>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

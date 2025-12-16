@@ -1,3 +1,5 @@
+import getConnectionDatabase from "../config/database";
+
 const handleCreateUser = (name: string, email: string, address: string) => {
     // save to database
 
@@ -5,4 +7,17 @@ const handleCreateUser = (name: string, email: string, address: string) => {
     console.log("Insert new user to database successfully!")
 }
 
-export { handleCreateUser }
+const getAllUser = async () => {
+    const connection = await getConnectionDatabase();
+    try {
+        const [results, fields] = await connection.query(
+            'SELECT * FROM `user`'
+        );
+        return results;
+    } catch (err) {
+        console.log(err);
+        return [];
+    }
+}
+
+export { handleCreateUser, getAllUser }
