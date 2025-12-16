@@ -1,6 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
 import webRoutes from './routes/web';
+import getConnectionDatabase from './config/database';
 
 const app = express();
 const PORT = process.env.PORT;
@@ -18,6 +19,9 @@ app.use(express.static('public'))
 
 // config routes
 webRoutes(app);
+
+// connection to database
+getConnectionDatabase();
 
 app.listen(PORT, () => {
     console.log(`My app is running on port ${PORT}`);
