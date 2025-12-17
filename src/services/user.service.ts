@@ -26,4 +26,14 @@ const getAllUser = async () => {
     }
 }
 
-export { handleCreateUser, getAllUser }
+const handleDeleteUser = async (id) => {
+    const connection = await getConnectionDatabase();
+    try {
+        alert(id);
+        console.log("Delete user successfully!");
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export { handleCreateUser, getAllUser, handleDeleteUser }

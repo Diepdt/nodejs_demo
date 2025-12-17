@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getAllUser, handleCreateUser } from "../services/user.service";
+import { getAllUser, handleCreateUser, handleDeleteUser } from "../services/user.service";
 
 const getHomePage = async (req: Request, res: Response) => {
     // get all user from database
@@ -22,4 +22,13 @@ const postCreateUserInfo = async (req: Request, res: Response) => {
     res.redirect("/");
 }
 
-export { getHomePage, getCreateUser, postCreateUserInfo }
+const postDeleteUser = async (req: Request, res: Response) => {
+    const id = req.params.id;
+
+    // handleDeleteUser
+    await handleDeleteUser(id);
+
+    res.redirect("/");
+}
+
+export { getHomePage, getCreateUser, postCreateUserInfo, postDeleteUser }
