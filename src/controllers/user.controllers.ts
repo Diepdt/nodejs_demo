@@ -9,16 +9,17 @@ const getHomePage = async (req: Request, res: Response) => {
     res.render("home", { users: users });
 }
 
-const getCreateUserPage = (req: Request, res: Response) => {
+const getCreateUser = (req: Request, res: Response) => {
     res.render("create-user")
 }
 
-const postCreateUserInfo = (req: Request, res: Response) => {
-    const { name, email, address } = req.body
-    // handleCreateUser
-    handleCreateUser(name, email, address)
+const postCreateUserInfo = async (req: Request, res: Response) => {
+    const { name, email, address } = req.body;
 
-    res.redirect("/")
+    // handleCreateUser
+    await handleCreateUser(name, email, address);
+
+    res.redirect("/");
 }
 
-export { getHomePage, getCreateUserPage, postCreateUserInfo }
+export { getHomePage, getCreateUser, postCreateUserInfo }
