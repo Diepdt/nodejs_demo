@@ -46,7 +46,6 @@ const getUserById = async (id: string) => {
     try {
         const sql = 'SELECT * FROM `user` WHERE `id` = ?';
         const values = [id];
-
         const [result] = await connection.execute(sql, values);
         return result;
     } catch (err) {
@@ -55,4 +54,16 @@ const getUserById = async (id: string) => {
     }
 }
 
-export { handleCreateUser, getAllUser, handleDeleteUser, getUserById }
+const updateUserById = async (id: string, name: string, email: string, address: string) => {
+    const connection = await getConnectionDatabase();
+    try {
+        const sql = 'UPDATE `user` SET `name` = ?, `email` = ?, `address` = ? WHERE `id` = ?';
+        const values = [name, email, address, id];
+        const [result] = await connection.execute(sql, values);
+        console.log(result);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export { handleCreateUser, getAllUser, handleDeleteUser, getUserById, updateUserById }

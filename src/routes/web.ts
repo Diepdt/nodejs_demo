@@ -1,5 +1,5 @@
 import express, { Express } from 'express'; // const express = require('express');
-import { getCreateUser, getHomePage, getUserInfo, postCreateUserInfo, postDeleteUser } from '../controllers/user.controllers';
+import { getCreateUser, getHomePage, getUserInfo, postCreateUserInfo, postDeleteUser, updateUserInfo } from '../controllers/user.controllers';
 const router = express.Router();
 
 const webRoutes = (app: Express) => { // khai bao 1 ham va dat ten: webRoutes
@@ -11,7 +11,9 @@ const webRoutes = (app: Express) => { // khai bao 1 ham va dat ten: webRoutes
 
     router.post("/handle-delete-user/:id", postDeleteUser);
 
-    router.get("/handle-view-user/:id", getUserInfo);
+    router.get("/handle-update-user/:id", getUserInfo);
+
+    router.post("/handle-update-user/:id", updateUserInfo);
 
     app.use("/", router);
 }
