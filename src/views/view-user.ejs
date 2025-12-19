@@ -13,10 +13,10 @@
         <div style="display:flex; justify-content: space-between; align-self: center;">
             <h1>View User:</h1>
         </div>
-        <form action="/handle-update-user" method="post">
+        <form action="/handle-update-user/<%= userInfo[0].id %>" method="post">
             <div class="mb-3">
                 <label class="form-label">Id:</label>
-                <input name="id" class="form-control" value="<%= userInfo[0].id %>" readonly> # chi doc
+                <input name="id" class="form-control" value="<%= userInfo[0].id %>" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Name:</label>
@@ -31,9 +31,9 @@
                 <textarea name="address" class="form-control" rows="2"><%= userInfo[0].address %></textarea>
             </div>
             <div class="mb-3">
-                <div style="display: flex; gap: 30px;">
+                <div style="display: flex; gap: 10px;">
                     <button type="submit" class="btn btn-warning" class="form-control">Update</button>
-                    <button type="submit" class="btn btn-warning" class="form-control" href="/">HomePage</button>
+                    <a class="btn btn-warning" href="/">HomePage</a>
                 </div>
             </div>
         </form>

@@ -60,7 +60,7 @@ const updateUserById = async (id: string, name: string, email: string, address: 
         const sql = 'UPDATE `user` SET `name` = ?, `email` = ?, `address` = ? WHERE `id` = ?';
         const values = [name, email, address, id];
         const [result] = await connection.execute(sql, values);
-        console.log(result);
+        console.log("Update user successfully!");
     } catch (err) {
         console.log(err);
     }

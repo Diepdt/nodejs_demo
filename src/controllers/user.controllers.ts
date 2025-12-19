@@ -37,8 +37,7 @@ const getUserInfo = async (req: Request, res: Response) => {
 }
 
 const updateUserInfo = async (req: Request, res: Response) => {
-    await updateUserById(req.params.id, req.params.name, req.params.email, req.params.address);
-    console.log(req.params.id);
+    await updateUserById(req.params.id, req.body.name, req.body.email, req.body.address);
     res.redirect("/");
 }
 
