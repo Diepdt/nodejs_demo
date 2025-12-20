@@ -13,22 +13,22 @@
         <div style="display:flex; justify-content: space-between; align-self: center;">
             <h1>View User:</h1>
         </div>
-        <form action="/handle-update-user/<%= userInfo[0].id %>" method="post">
+        <form action="/handle-update-user/<%= userInfo.id %>" method="post">
             <div class="mb-3">
                 <label class="form-label">Id:</label>
-                <input name="id" class="form-control" value="<%= userInfo[0].id %>" readonly>
+                <input name="id" class="form-control" value="<%= userInfo.id %>" readonly>
             </div>
             <div class="mb-3">
                 <label class="form-label">Name:</label>
-                <input name="name" type="text" class="form-control" value="<%= userInfo[0].name %>">
+                <input name="name" type="text" class="form-control" value="<%= userInfo.name %>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Email:</label>
-                <input name="email" type="text" class="form-control" value="<%= userInfo[0].email %>">
+                <input name="email" type="text" class="form-control" value="<%= userInfo.email %>">
             </div>
             <div class="mb-3">
                 <label class="form-label">Address:</label>
-                <textarea name="address" class="form-control" rows="2"><%= userInfo[0].address %></textarea>
+                <textarea name="address" class="form-control" rows="2"><%= userInfo.address %></textarea>
             </div>
             <div class="mb-3">
                 <div style="display: flex; gap: 10px;">
