@@ -1,14 +1,9 @@
 import { prisma } from "../config/client";
-import getConnectionDatabase from "../config/database";
 
 const handleCreateUser = async (name: string, email: string, address: string) => {
     const createUser = await prisma.user.create({
-        data: {
-            name: name,
-            email: email,
-            address: address
-        }
-    })
+        data: { username: name, password: email, address: address, accountType: "admin" }
+    });
 }
 
 const getAllUser = async () => {
@@ -28,7 +23,7 @@ const getUserById = async (id: string) => {
 const updateUserById = async (id: string, name: string, email: string, address: string) => {
     const updateUser = await prisma.user.update({
         where: { id: Number(id) },
-        data: { name: name, email: email, address: address }
+        data: { username: name, password: email, address: address }
     })
 }
 
