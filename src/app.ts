@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // config static files
-app.use(express.static('public'))
+app.use(express.static('public')); // tat ca static file se xuat phat diem voi public folder
 
 // config routes
 webRoutes(app);
