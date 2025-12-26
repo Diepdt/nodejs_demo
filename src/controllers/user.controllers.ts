@@ -10,7 +10,7 @@ const getHomePage = async (req: Request, res: Response) => {
 }
 
 const getCreateUser = (req: Request, res: Response) => {
-    res.render("create-user")
+    res.render("admin/user/create")
 }
 
 const postCreateUserInfo = async (req: Request, res: Response) => {

@@ -1,12 +1,12 @@
 import express, { Express } from 'express'; // const express = require('express');
 import { getCreateUser, getHomePage, getUserInfo, postCreateUserInfo, postDeleteUser, updateUserInfo } from '../controllers/user.controllers';
-import { getAdminUserPage, getDashboardPage } from '../controllers/admin/dashboard.controllers';
+import { getAdminUserPage, getDashboardPage, getAdminProductPage, getAdminOrderPage } from '../controllers/admin/dashboard.controllers';
 const router = express.Router();
 
 const webRoutes = (app: Express) => { // khai bao 1 ham va dat ten: webRoutes
     // user
     router.get("/", getHomePage);
-    router.get("/create-user", getCreateUser);
+
     router.post("/create-user", postCreateUserInfo);
     router.post("/handle-delete-user/:id", postDeleteUser);
     router.get("/handle-update-user/:id", getUserInfo);
@@ -14,7 +14,13 @@ const webRoutes = (app: Express) => { // khai bao 1 ham va dat ten: webRoutes
 
     // admin
     router.get("/admin", getDashboardPage);
+
     router.get("/admin/user", getAdminUserPage);
+    router.get("/create-user", getCreateUser);
+
+    router.get("/admin/product", getAdminProductPage);
+
+    router.get("/admin/order", getAdminOrderPage);
 
     app.use("/", router);
 }
